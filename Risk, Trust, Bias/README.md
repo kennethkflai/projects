@@ -1,4 +1,4 @@
-#Risk, Trust, and Bias
+# Risk, Trust, and Bias
 
 Script provided is in relation with the following papers:
 

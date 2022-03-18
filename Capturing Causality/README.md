@@ -1,4 +1,4 @@
-#Capturing Causality in Bias in Human Action Recognition
+# Capturing Causality in Bias in Human Action Recognition
 
 Script provided is in relation with the following paper:
 
