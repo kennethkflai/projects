@@ -39,12 +39,11 @@ Open File
 File->Open File or click white box
 Navigate to WESAD dataset
 ```
-
-![](disp.png)
 Display window controls what signal is being drawn on the window to the left.
+<img src="disp.png" width="480"/>
 
-![](inp.png)
 Input window controls what signals are being used by the machine-learning model for prediction.
+<img src="inp.png" width="480"/>
 
-![](pred.png)
 Prediction window shows the prediction by the machine-learning model as well as the ground-truth label.
+<img src="pred.png" width="480"/>
