@@ -8,7 +8,7 @@ Script provided is in relation with the following papers:
 
 Causal Network:
 
-![](bn.png)
+<img src="bn.png" width="480"/>
 
 Using Bayesian network to model how biases can impact a dataset.  Each parent node is created based on the different attributes: facial attributes, ethnicity, gender, and year-of-birth.
  
