@@ -40,4 +40,11 @@ File->Open File or click white box
 Navigate to WESAD dataset
 ```
 
-Display screen controls what signal is being drawn on the screen to the right.  Input screen controls what signals are being used by the machine-learning model for prediction.  Prediction screen shows the prediction by the machine-learning model as well as the ground-truth label.
+![](disp.png)
+Display window controls what signal is being drawn on the window to the left.
+
+![](inp.png)
+Input window controls what signals are being used by the machine-learning model for prediction.
+
+![](pred.png)
+Prediction window shows the prediction by the machine-learning model as well as the ground-truth label.
