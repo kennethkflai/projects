@@ -7,7 +7,9 @@ Script provided is in relation with the following papers:
 - K. Lai, H. Oliveira, M. Hou, S. Yanushkevich, and V. Shmerko, [Risk, Trust, and Bias: Causal Regulators of Biometric-Enabled Decision Support](https://ieeexplore.ieee.org/document/9164930), IEEE Access, vol. 8, August 2020, pp. 148779-148792.
 
 Causal Network:
+
 ![](bn.png)
+
 Using Bayesian network to model how biases can impact a dataset.  Each parent node is created based on the different attributes: facial attributes, ethnicity, gender, and year-of-birth.
  
 ## Dataset
