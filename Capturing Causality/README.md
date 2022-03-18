@@ -6,7 +6,7 @@ Script provided is in relation with the following paper:
 
 Architure used in the paper is as follows:
 
-[](tcn.png)
+![](tcn.png)
 
 The Res-TCN network is composed of four block of residual units. Each residual unit is composed of three sets of sub-blocks where each sub-block is the combination of Batch Normalization (BatchNorm), Rectified Linear Unit (ReLu), and Convolution layers. The sub-block structure is illustrated in the Figure above. Res-U(32, 8, 1) represents a sub-block containing a convolutional layer with 32 filters (F = 32), filter size of 8 (K = 8), and stride of 1 (S = 1)
 
