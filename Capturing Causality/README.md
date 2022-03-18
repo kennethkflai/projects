@@ -34,4 +34,4 @@ or custom parameters:
 ```
 python3 fall.py --timestep=20 --cycle=10 --base=100 --mult=1 --modeltype=0 --lr=0.001 --wd=0.
 ```
-Timestep is the number frames to be used, cycle is the number of times to restart cycle based on Cosine annealing, base is the number of epoches in a cycle, mult is the multiplier to increase number of epoches after each cycle. lr is the learning rate, and wd is the weight decay.
+Timestep is the number frames to be used, cycle is the number of times to restart cycle based on Cosine annealing, base is the number of epoches in a cycle, mult is the multiplier to increase number of epoches after each cycle, lr is the learning rate, and wd is the weight decay.
