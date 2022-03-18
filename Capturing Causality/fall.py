@@ -14,7 +14,7 @@ from util.model import model_set
 from util.data_process import data_set
 from util.data_process import get_data_skele_npy, get_data_img_npy
 
-data_path = r'E:\ken\2021-PRLetter - Capturing Causality and Bias in Human Action Recognition\fall2\\HAR-UP\\'
+data_path = r'HAR-UP\\'
 
 model_list = {0: "test", 1: "test1", 2: "test2", 3: "test3", 4: "test4"}
 channel = 2
@@ -94,7 +94,7 @@ def test_models(num_frame, val_index, num_classes, model_type, wd, lr, num_cycle
 
 if __name__ == "__main__":
     _argparser = argparse.ArgumentParser(
-        description='Gesture Recognition',
+        description='Action Recognition',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     _argparser.add_argument(
         '--timestep', type=int, default=20, metavar='INTEGER',
