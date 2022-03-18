@@ -27,6 +27,7 @@ Libraries:
 
 Download the [CompleteDataSet.csv](https://drive.google.com/file/d/1JBGU5W2uq9rl8h7bJNt2lN4SjfZnFxmQ/view) from the FALL-UP Dataset and place with root files.
 
+## Usage
 To run with default parameters:
 ```
 python3 fall.py
