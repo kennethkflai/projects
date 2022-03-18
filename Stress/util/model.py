@@ -147,12 +147,11 @@ class model(object):
         self.model_type = model_type
         self.num_frame = num_frame
 
-        self.create_model(num_frame, lr, wd, num_classes, feature_size)
+        self.create_model(num_frame, lr, wd, num_classes, feature_size, independent)
 
-    def create_model(self, num_frame, lr, wd, num_classes, feature_size):
-
+    def create_model(self, num_frame, lr, wd, num_classes, feature_size, independent):
         main_input = Input(shape=(num_frame, feature_size[0]))
-        vals = [2, 4, 8, 16]
+        vals = [8, 16, 32, 64]
         def precustom(layer):
             layer = BatchNormalization(axis=-1)(layer)
             layer = Activation(activation_custom)(layer)
@@ -160,35 +159,75 @@ class model(object):
             return layer
 
         skip = 6
-        acc_x, acc_y, acc_z, ecg, eda, emg, resp, temp, wacc_x, wacc_y, wacc_z, wbvp, weda, wtemp  = Lambda(lambda x: tf.split(x,num_or_size_splits=14,axis=-1))(main_input)
-        wacc = concatenate([wacc_x, wacc_y, wacc_z],)
-        _, _, _, wacc = TCN_Block(wacc, activation_custom, vals, jump=True, length=skip)
-        _, _, _, wbvp = TCN_Block(wbvp, activation_custom, vals, jump=True, length=skip)
-        _, _, _, weda = TCN_Block(weda, activation_custom, vals, jump=True, length=skip)
-        _, _, _, wtemp = TCN_Block(wtemp, activation_custom, vals, jump=True, length=skip)
+        
+        if independent == 0:
+            t = Reshape((num_frame, feature_size[0]))(main_input)
+            _, _, _, t = TCN_Block(t, activation_custom, vals, jump=True, length=skip)
+            t = precustom(t)
+            t = MLP(256, t)
+        elif independent == 1: 
+            acc_x, acc_y, acc_z, ecg, eda, emg, resp, temp = Lambda(lambda x: tf.split(x,num_or_size_splits=8,axis=-1))(main_input)        
+            acc = concatenate([acc_x, acc_y, acc_z],)
+            _, _, _, acc = TCN_Block(acc, activation_custom, vals, jump=True, length=skip)
+            _, _, _, ecg = TCN_Block(ecg, activation_custom, vals, jump=True, length=skip)
+            _, _, _, eda = TCN_Block(eda, activation_custom, vals, jump=True, length=skip)
+            _, _, _, emg = TCN_Block(emg, activation_custom, vals, jump=True, length=skip)
+            _, _, _, resp = TCN_Block(resp, activation_custom, vals, jump=True, length=skip)
+            _, _, _, temp = TCN_Block(temp, activation_custom, vals, jump=True, length=skip)
 
-        acc = concatenate([acc_x, acc_y, acc_z],)
-        _, _, _, acc = TCN_Block(acc, activation_custom, vals, jump=True, length=skip)
-        _, _, _, ecg = TCN_Block(ecg, activation_custom, vals, jump=True, length=skip)
-        _, _, _, eda = TCN_Block(eda, activation_custom, vals, jump=True, length=skip)
-        _, _, _, emg = TCN_Block(emg, activation_custom, vals, jump=True, length=skip)
-        _, _, _, resp = TCN_Block(resp, activation_custom, vals, jump=True, length=skip)
-        _, _, _, temp = TCN_Block(temp, activation_custom, vals, jump=True, length=skip)
+            acc = precustom(acc)
+            ecg = precustom(ecg)
+            eda = precustom(eda)
+            emg = precustom(emg)
+            resp = precustom(resp)
+            temp = precustom(temp)
+            t = concatenate([acc, ecg, eda, emg, resp, temp])
+            t = MLP(1024, t)
+        elif independent == 2:
+            wacc_x, wacc_y, wacc_z, wbvp, weda, wtemp  = Lambda(lambda x: tf.split(x,num_or_size_splits=6,axis=-1))(main_input)
+            wacc = concatenate([wacc_x, wacc_y, wacc_z],)
+            _, _, _, wacc = TCN_Block(wacc, activation_custom, vals, jump=True, length=skip)
+            _, _, _, wbvp = TCN_Block(wbvp, activation_custom, vals, jump=True, length=skip)
+            _, _, _, weda = TCN_Block(weda, activation_custom, vals, jump=True, length=skip)
+            _, _, _, wtemp = TCN_Block(wtemp, activation_custom, vals, jump=True, length=skip)
+
+            wacc = precustom(wacc)
+            wbvp = precustom(wbvp)
+            weda = precustom(weda)
+            wtemp = precustom(wtemp)
+
+            t = concatenate([wacc, wbvp, weda, wtemp])
+            t = MLP(1024, t)
+        else:
+            acc_x, acc_y, acc_z, ecg, eda, emg, resp, temp, wacc_x, wacc_y, wacc_z, wbvp, weda, wtemp  = Lambda(lambda x: tf.split(x,num_or_size_splits=14,axis=-1))(main_input)
+            wacc = concatenate([wacc_x, wacc_y, wacc_z],)
+            _, _, _, wacc = TCN_Block(wacc, activation_custom, vals, jump=True, length=skip)
+            _, _, _, wbvp = TCN_Block(wbvp, activation_custom, vals, jump=True, length=skip)
+            _, _, _, weda = TCN_Block(weda, activation_custom, vals, jump=True, length=skip)
+            _, _, _, wtemp = TCN_Block(wtemp, activation_custom, vals, jump=True, length=skip)
+
+            acc = concatenate([acc_x, acc_y, acc_z],)
+            _, _, _, acc = TCN_Block(acc, activation_custom, vals, jump=True, length=skip)
+            _, _, _, ecg = TCN_Block(ecg, activation_custom, vals, jump=True, length=skip)
+            _, _, _, eda = TCN_Block(eda, activation_custom, vals, jump=True, length=skip)
+            _, _, _, emg = TCN_Block(emg, activation_custom, vals, jump=True, length=skip)
+            _, _, _, resp = TCN_Block(resp, activation_custom, vals, jump=True, length=skip)
+            _, _, _, temp = TCN_Block(temp, activation_custom, vals, jump=True, length=skip)
 
 
-        wacc = precustom(wacc)
-        wbvp = precustom(wbvp)
-        weda = precustom(weda)
-        wtemp = precustom(wtemp)
+            wacc = precustom(wacc)
+            wbvp = precustom(wbvp)
+            weda = precustom(weda)
+            wtemp = precustom(wtemp)
 
-        acc = precustom(acc)
-        ecg = precustom(ecg)
-        eda = precustom(eda)
-        emg = precustom(emg)
-        resp = precustom(resp)
-        temp = precustom(temp)
-        t = concatenate([acc, ecg, eda, emg, resp, temp, wacc, wbvp, weda, wtemp])
-        t = MLP(1024, t)
+            acc = precustom(acc)
+            ecg = precustom(ecg)
+            eda = precustom(eda)
+            emg = precustom(emg)
+            resp = precustom(resp)
+            temp = precustom(temp)
+            t = concatenate([acc, ecg, eda, emg, resp, temp, wacc, wbvp, weda, wtemp])
+            t = MLP(1024, t)
 
         act = 'softmax'
         l = 'categorical_crossentropy'
