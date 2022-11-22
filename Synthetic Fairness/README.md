@@ -37,5 +37,5 @@ python3 run-speakerface.py
 
 Run metric calculations:
 ```
-python3 metrics.py
+python3 fl.py
 ```
