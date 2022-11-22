@@ -2,7 +2,7 @@
 
 Script provided is in relation with the following papers:
 
-- K Lai, V. Shmerko, and S. Yanushkevich, [Measuring Fairness of Deep Neural Network Classifiers for Face Biometrics], International Conference on Cognitive Machine Intelligence, 2022.
+- K Lai, V. Shmerko, and S. Yanushkevich, Measuring Fairness of Deep Neural Network Classifiers for Face Biometrics, International Conference on Cognitive Machine Intelligence, December 2022.
  
 ## Dataset
 The experiment in this paper is based on the [SpeakingFaces Dataset](https://github.com/IS2AI/SpeakingFaces) and [Thermal-Mask Dataset](https://ieeexplore.ieee.org/document/9497521). A description of the dataset can be found in:
