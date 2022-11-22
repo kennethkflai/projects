@@ -18,9 +18,14 @@ The experiment in this paper is based on the [Praxis Dataset](https://team.inria
 ## Setup
 Libraries:
 - numpy 1.18.1
+- keras 2.2.4
+- tensorflow 1.13.1
+- scipy 1.2.1
+- pillow 5.4.1
 - opencv 3.4.1
 - opencv-python 4.2.0.32
-- scipy 1.2.1
+- matplotlib 3.0.3
+- scikit-learn 0.21.3
 
 ## Usage
 Initiate gesture training:

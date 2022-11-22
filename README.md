@@ -2,6 +2,8 @@
 
 Research project relating to developing trustworthiness in artificial intelligence.  Funding contributed to the following papers:
 
+- K Lai, V. Shmerko, and S. Yanushkevich, [Measuring Fairness of Deep Neural Network Classifiers for Face Biometrics], International Conference on Cognitive Machine Intelligence, 2022.
+
 - R. Islam, K Lai and S. Yanushkevich, [Hand Gesture Classification on Praxis Dataset: Trading Accuracy for Expense](https://ieeexplore.ieee.org/document/9892631), International Joint Conference on Neural Networks (IJCNN), 1-8, 2022
 
 - K. Lai, S. Yanushkevich, V. Shmerko, and M. Hou, [Capturing Causality in Bias in Human Action Recognition](https://www.sciencedirect.com/science/article/abs/pii/S0167865521001380), in Pattern Recognition Letters, vol. 147, July 2021, pp. 164-171.
