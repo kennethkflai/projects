@@ -2,6 +2,8 @@
 
 Research project relating to developing trustworthiness in artificial intelligence.  Funding contributed to the following papers:
 
+- R. Islam, K Lai and S. Yanushkevich, [Hand Gesture Classification on Praxis Dataset: Trading Accuracy for Expense](https://ieeexplore.ieee.org/document/9892631), International Joint Conference on Neural Networks (IJCNN), 1-8, 2022
+
 - K. Lai, S. Yanushkevich, V. Shmerko, and M. Hou, [Capturing Causality in Bias in Human Action Recognition](https://www.sciencedirect.com/science/article/abs/pii/S0167865521001380), in Pattern Recognition Letters, vol. 147, July 2021, pp. 164-171.
 
 - K. Lai, S. Yanushkevich, and V. Shmerko, [Epidemiology Attack at the Aircraft Carrier Theodore Roosevelt: Bridging Gaps of the Emergency Management](https://journals.sagepub.com/doi/10.1177/15485129211028659), Journal of Defense Modeling and Simulation, July 2021, pp. 1-16.

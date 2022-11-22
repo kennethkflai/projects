@@ -1,7 +1,8 @@
 # Gesture Classification
 
 Script provided is in relation with the following papers:
-- R. Islam, K Lai and S. Yanushkevich, [Hand Gesture Classification on Praxis Dataset: Trading Accuracy for Expense](https://ieeexplore.ieee.org/document/9892631), 2022 International Joint Conference on Neural Networks (IJCNN), 1-8
+
+- R. Islam, K Lai and S. Yanushkevich, [Hand Gesture Classification on Praxis Dataset: Trading Accuracy for Expense](https://ieeexplore.ieee.org/document/9892631), International Joint Conference on Neural Networks (IJCNN), 1-8, 2022
 
 Model Network:
 
