@@ -1,14 +1,14 @@
 # Capturing Causality in Bias in Human Action Recognition
 
-Script provided is in relation with the following paper:
+The script provided is in relation to the following paper:
 
 - K. Lai, S. Yanushkevich, V. Shmerko, and M. Hou, [Capturing Causality in Bias in Human Action Recognition](https://www.sciencedirect.com/science/article/abs/pii/S0167865521001380), in Pattern Recognition Letters, vol. 147, July 2021, pp. 164-171.
 
-Architure used in the paper is as follows:
+The architecture used in the paper is as follows:
 
 ![](tcn.png)
 
-The Res-TCN network is composed of four block of residual units. Each residual unit is composed of three sets of sub-blocks where each sub-block is the combination of Batch Normalization (BatchNorm), Rectified Linear Unit (ReLu), and Convolution layers. The sub-block structure is illustrated in the Figure above. Res-U(32, 8, 1) represents a sub-block containing a convolutional layer with 32 filters (F = 32), filter size of 8 (K = 8), and stride of 1 (S = 1)
+The Res-TCN network is composed of four blocks of residual units. Each residual unit is composed of three sets of sub-blocks where each sub-block is the combination of Batch Normalization (BatchNorm), Rectified Linear Unit (ReLu), and Convolution layers. The sub-block structure is illustrated in the Figure above. Res-U(32, 8, 1) represents a sub-block containing a convolutional layer with 32 filters (F = 32), filter size of 8 (K = 8), and stride of 1 (S = 1)
 
 ## Dataset
 The experiment in this paper is based on the [FALL-UP Dataset](https://sites.google.com/up.edu.mx/har-up/). A description of the dataset can be found in:
@@ -37,4 +37,4 @@ or custom parameters:
 ```
 python3 fall.py --timestep=20 --cycle=10 --base=100 --mult=1 --modeltype=0 --lr=0.001 --wd=0.
 ```
-Timestep is the number frames to be used, cycle is the number of times to restart cycle based on Cosine annealing, base is the number of epoches in a cycle, mult is the multiplier to increase number of epoches after each cycle, lr is the learning rate, and wd is the weight decay.
+The timestep is the number of frames to be used, the cycle is the number of times to restart cycle based on Cosine annealing, the base is the number of epochs in a cycle, mult is the multiplier to increase the number of epochs after each cycle, lr is the learning rate, and wd is the weight decay.
