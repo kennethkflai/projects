@@ -7,7 +7,7 @@ Script provided is in relation with the following paper:
 Causal Network used in this paper:
 ![](bn.png)
 
-<img src="bn.png" width="324" height="324">
+<img src="bn.png" width="324">
 
 ## Dataset
 The experiment in this paper is based on the mortality report:
